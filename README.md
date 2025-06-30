@@ -7,6 +7,7 @@ I recently added Uptime-Kuma to my home lab.  I've been running an in-house IRCd
 * The architecture discussed below is isolated within my home lab (inbound connections are turned away by the firewall).
 * Because it's isolated, the webhook listens for unencrypted HTTP connections.  It's not that difficult to convert it to HTTPS and filter out sources other than the authorized source.  It's easy to configure HTTPS certs for internal services (hint: use Let'sEncrypt's DNS-01 feature).
 * Below is meant for homelab (i.e., very low traffic) architectues.  It is unknown if it scales well.
+* Because Uptime-Kuma supports so many types of monitors, you may have to create a few different listensers.  Below is for a basic HTTP monitor.
 * I'm creating these notes in response to a Reddit discussion.
 * Installing/configuring Uptime-Kuma, IRCd, etc. is outside of the scope of this article.
 * I make no claims that any of the following is secure and/or that it won't break things.  If it goes beserk, scares your dog, drinks your beer (or coffee), and lhen leaves town, it's you that took the risk.  If it creates true artificial intelligence, feel free to give me credit.
