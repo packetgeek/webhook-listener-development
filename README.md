@@ -249,6 +249,10 @@ monitor
 msg        <-- a string that usually contains "Up" or "Down"
 ```
 
+I'm still working out the code for the UK listener so I'll add more notes here, later.
+
+## A Gitea listener
+
 I'm still developing the UK listener and these notes.  However, I've included the code for for a Gitea listener in this repo.  Short version, it's basically the same base code as the above scripts, with just a few filters and actions added.  Hint: everything between the "URL" line, down to the line starting with "MYSTRING", reads the data from the webhook and creates the message to send to the IRC server. The bashCommand line sends the message to the IRCd server via the netcat tool.  
 
 Note: all of the lines between the ones starting with "URL" and "MYSTRING" will be unique for each listener.  This means that the capitalized variables (URL, PERSON, MESSAGE, ACTION, etc.) will be different in each type of listener (call 'em whatever you want).
