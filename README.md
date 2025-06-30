@@ -249,4 +249,14 @@ monitor
 msg        <-- a string that usually contains "Up" or "Down"
 ```
 
-I'm still developing the UK listener and these notes.  However, I've included a listener for Gitea in these notes.  Short version, it's basically the same base code as the above scripts, with just a few filters and actions added.  I'll post the separate scripts to this repo as I get them working.
+I'm still developing the UK listener and these notes.  However, I've included the code for for a Gitea listener in this repo.  Short version, it's basically the same base code as the above scripts, with just a few filters and actions added.  Hint: everything between the "URL" line, down to the line starting with "MYSTRING", reads the data from the webhook and creates the message to send to the IRC server. The bashCommand line sends the message to the IRCd server via the netcat tool.  
+
+Note: all of the lines between the ones starting with "URL" and "MYSTRING" will be unique for each listener.  This means that the capitalized variables (URL, PERSON, MESSAGE, ACTION, etc.) will be different in each type of listener (call 'em whatever you want).
+
+I'll post the other listeners to this repo as I get them working.  I've been using the Gitea listener for about a year now.
+
+## Things you could do
+* Use Bash's internal networking facility, instead of netcat, to send the message.
+* Make the messages fancier by incorporating more of the data from the webhook.
+* Output to something other than IRC.  For whatever output service you want (nfty, mattermost, etc.), it's likely that someone has already posted code for it.
+* Drop an IRC bouncer into the path (e.g., ZNC) which allows multiple connections via the same user.  Create a script that impersonates you and have it turn a Blink device on and off when something's down.  (T00 much?  I'll stop here)
